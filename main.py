@@ -1,9 +1,8 @@
 from flask import Flask, request
-app = Flask(__name__)
-app.config['DEBUG'] = True
+from core import factory
 
-# Note: We don't need to call run() since our application is embedded within
-# the App Engine WSGI application server.
+app = factory.create_app(__name__)
+print("Debug is set to: {}".format(app.config['DEBUG']))
 
 
 @app.route('/')
