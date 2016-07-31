@@ -7,9 +7,9 @@
 """
 
 from flask import Flask
-#from core import db
+from .helpers import register_blueprints
 
-def create_app(package_name, settings_override=None):
+def create_app(package_name, package_path, settings_override=None):
     """Returns a :class:`Flask` application instance configured with common
     functionality for the core platform.
 
@@ -22,5 +22,7 @@ def create_app(package_name, settings_override=None):
 
     app.config.from_object('core.settings')
     app.config.from_pyfile('settings.cfg', silent=True)
+
+    register_blueprints(app, package_name, package_path)
 
     return app
