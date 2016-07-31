@@ -14,6 +14,8 @@ nosetests.xml
 build/
 docs/_build
 *.backup*
+*.sw*
+.*.sw*
 
 # Project Files
 Gemfile*
